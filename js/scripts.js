@@ -695,12 +695,12 @@ function girlAnimation() {
                             $("#section-1-3-text-2-1").hide();
                             $("#section-1-3-text-2-2").hide();
                             
-                            setTimeout(function(){
+                           /* setTimeout(function(){
                                     $('#section-1-3-text-3-1').show();
                                 setTimeout(function(){
                                     $('#section-1-3-text-3-2').show();
                                 },1200)
-                            },1000);
+                            },1000); */
 
                             $('#text-container').css('opacity', '1');
                             $('#text-container').bind(transition, function() {
@@ -722,16 +722,16 @@ function girlAnimation() {
                                     $('#text-container').css('opacity', '0');
                                     $('#text-container').bind(transition, function() {
                                         $(this).unbind(transition);
-                                        $('#section-1-3-text-3-1').hide();
-                                        $('#section-1-3-text-3-2').hide();
+                                       // $('#section-1-3-text-3-1').hide();
+                                        //$('#section-1-3-text-3-2').hide();
                                         
                                         
                                         setTimeout(function(){
                                             $('#section-1-3-text-4-1').show();
                                         setTimeout(function(){
                                             $('#section-1-3-text-4-2').show();
-                                        },1400)
-                                    },100);
+                                        },700)
+                                    },50);
 
                                         $('#text-container').css('opacity', '1');
                                         $('#text-container').bind(transition, function() {
@@ -739,7 +739,7 @@ function girlAnimation() {
                                             endGlobalTransition();
                                         });
                                     });
-                                }, 2000);
+                                }, 500);
                             });
                         });
                     }, 1000);
