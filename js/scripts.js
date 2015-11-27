@@ -640,16 +640,31 @@ function carAnimation() {
                     $('#section-' + lastSection).css('opacity', '1');
                     $('#section-' + lastSection).bind(transition, function() {
                     $(this).unbind(transition);
-                    $('#car-blue').css({
-                        '-webkit-transform': 'translateX(.001%)',
-                        '-ms-transform': 'translateX(.001%)',
-                        '-moz-transform': 'translateX(.001%)'
-                    });
+                        
+                        $('#car-blue').css({
+                        '-webkit-transform': 'translateX(10%)',
+                        '-ms-transform': 'translateX(10%)',
+                        '-moz-transform': 'translateX(10%)'
+                    }); 
+                        
+                        /*$('#car-blue-gadget').css({
+                        '-webkit-transform': 'translateX(20%)',
+                        '-ms-transform': 'translateX(20%)',
+                        '-moz-transform': 'translateX(20%)'
+                    });*/
+                        
                         $('#car-blue').bind(transition, function() {
                             $('#car-blue').unbind(transition);
                                 endGlobalTransition();
 								
                             });
+                        
+                        /*$('#car-blue-gadget').bind(transition, function() {
+                            $('#car-blue-gadget').unbind(transition);
+                                endGlobalTransition();
+								
+                            });*/
+                        
                         });
                     });
                 });
@@ -682,7 +697,7 @@ function girlAnimation() {
             setTimeout(function(){
                 $("#section-1-3-text-2-2").show();
             },900)
-        },4100);
+        },3100);
 
             hideRayBest(function() {
                 $('#section-' + lastSection).css('opacity', '1');
@@ -695,22 +710,17 @@ function girlAnimation() {
                             $("#section-1-3-text-2-1").hide();
                             $("#section-1-3-text-2-2").hide();
                             
-                           /* setTimeout(function(){
-                                    $('#section-1-3-text-3-1').show();
-                                setTimeout(function(){
-                                    $('#section-1-3-text-3-2').show();
-                                },1200)
-                            },1000); */
+                            $('#girl-2-img').css({
+                                '-webkit-transform': 'translateX(-90px)',
+                                '-ms-transform': 'translateX(-90px)',
+                                '-moz-transform': 'translateX(-90px)'
+                            });
 
                             $('#text-container').css('opacity', '1');
                             $('#text-container').bind(transition, function() {
                                 $(this).unbind(transition);
                                 setTimeout(function() {
-                                    $('#girl-2-img').css({
-                                        '-webkit-transform': 'translateX(-90px)',
-                                        '-ms-transform': 'translateX(-90px)',
-                                        '-moz-transform': 'translateX(-90px)'
-                                    });
+   
                                     $('#gadget-1').css('opacity', '0');
                                     $('#gadget-1').bind(transition, function() {
                                         $(this).unbind(transition);
@@ -719,6 +729,7 @@ function girlAnimation() {
                                             $(this).unbind(transition);
                                         });
                                     });
+                                    
                                     $('#text-container').css('opacity', '0');
                                     $('#text-container').bind(transition, function() {
                                         $(this).unbind(transition);
@@ -730,8 +741,8 @@ function girlAnimation() {
                                             $('#section-1-3-text-4-1').show();
                                         setTimeout(function(){
                                             $('#section-1-3-text-4-2').show();
-                                        },700)
-                                    },50);
+                                        },1000)
+                                    },800);
 
                                         $('#text-container').css('opacity', '1');
                                         $('#text-container').bind(transition, function() {
@@ -739,10 +750,10 @@ function girlAnimation() {
                                             endGlobalTransition();
                                         });
                                     });
-                                }, 500);
+                                }, 100);
                             });
                         });
-                    }, 1000);
+                    }, 100);
                 });
             });
         });

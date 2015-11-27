@@ -588,6 +588,18 @@ body{
     width: 100%;
 }
 
+
+.flag-canadian {
+    
+    width: 68% !important;
+    margin: auto;
+    display: block;
+    top: -43px;
+    height: 190px;
+    
+}
+
+
 #car-red{
     position: absolute;
     width: 100%;
@@ -757,43 +769,47 @@ body{
 
 
 
-.car-blue-gadget{
+#car-blue > #car-blue-gadget{
     position: absolute;
-    width: 50%;
+    width: 90px;
+    height: 90px;
 	z-index: 20;
-    top: 95px;
-	left: 112px;
+    top: 15px;
+	left: 200px;
 }
 
-.car-blue-gadget img:nth-child(1){
-    width: 15px;
-    position: relative;
-    left: 40.2%;
-	top: 19px;
+#car-blue-gadget > img:nth-child(1){
+    width: 20px;
+    height: 44%;
+    left: 26px;
+	top: 27px;
+    position: absolute;
 	-webkit-transform: rotate(3deg);
     -ms-transform: rotate(3deg);
     -moz-transform: rotate(3deg);
     transform: rotate(3deg);
 }
-.car-blue-gadget img:nth-child(2){
-    width: 22px;
-    position: absolute;
-    left: 44.5%;
-	top: 11px;
+#car-blue-gadget > img:nth-child(2){
+    width: 28px;
+    height: 63%;
+    left: 42px;
+	top: 18px;
+     position: absolute;
 	-webkit-transform: rotate(5deg);
     -ms-transform: rotate(5deg);
     -moz-transform: rotate(5deg);
     transform: rotate(5deg);
 }
-.car-blue-gadget img:nth-child(3){
-    width: 22px;
+#car-blue-gadget > img:nth-child(3){
+    width: 28px;
+    height: 68%;
     position: absolute;
-    left: 49%;
-	top: 6px;
-	-webkit-transform: rotate(6deg);
-    -ms-transform: rotate(6deg);
-    -moz-transform: rotate(6deg);
-    transform: rotate(6deg);
+    left: 58px;
+	top: 15px;
+	-webkit-transform: rotate(7deg);
+    -ms-transform: rotate(7deg);
+    -moz-transform: rotate(7deg);
+    transform: rotate(7deg);
 }
 
 
@@ -857,8 +873,8 @@ body{
 
 #tap-image-shadow{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: -1px;
+    left: -1px;
     width: 100%;
 }
 
