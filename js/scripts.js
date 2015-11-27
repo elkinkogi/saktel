@@ -11,7 +11,10 @@ var lastSection = null,
         audios = {
             icon1: null,
             icon2: null,
-            icon3: null
+            icon3: null,
+            icon4: null,
+            icon5: null,
+            icon6: null
         },
         rows = 0;
 
@@ -83,6 +86,10 @@ Sound = function(data) {
 
 Sound.prototype.play = function() {
     this.audio.play();
+};
+
+Sound.prototype.stop = function() {
+    this.audio.pause();
 };
 
 function getRotationDegrees(obj) {
@@ -642,9 +649,9 @@ function carAnimation() {
                     $(this).unbind(transition);
                         
                         $('#car-blue').css({
-                        '-webkit-transform': 'translateX(10%)',
-                        '-ms-transform': 'translateX(10%)',
-                        '-moz-transform': 'translateX(10%)'
+                        '-webkit-transform': 'translateX(70%)',
+                        '-ms-transform': 'translateX(70%)',
+                        '-moz-transform': 'translateX(70%)'
                     }); 
                         
                         /*$('#car-blue-gadget').css({
@@ -693,11 +700,11 @@ function girlAnimation() {
             $("#section-1-3-text-1-2").hide();
             
             setTimeout(function(){
-                $("#section-1-3-text-2-1").show();
-            setTimeout(function(){
-                $("#section-1-3-text-2-2").show();
-            },900)
-        },3100);
+                    $("#section-1-3-text-2-1").show();
+                setTimeout(function(){
+                    $("#section-1-3-text-2-2").show();
+                },1300)
+            },3000);
 
             hideRayBest(function() {
                 $('#section-' + lastSection).css('opacity', '1');
@@ -741,8 +748,8 @@ function girlAnimation() {
                                             $('#section-1-3-text-4-1').show();
                                         setTimeout(function(){
                                             $('#section-1-3-text-4-2').show();
-                                        },1000)
-                                    },800);
+                                        },800)
+                                    },600);
 
                                         $('#text-container').css('opacity', '1');
                                         $('#text-container').bind(transition, function() {
@@ -798,9 +805,22 @@ function startAudio(icon) {
     audios[icon].play();
 }
 
+function stopAudio() {
+    audios["icon1"].stop();
+    audios["icon2"].stop();
+    audios["icon3"].stop();
+}
+
 function createListeners() {
     window.onorientationchange = updateOrientation;
-    $('.panel').on('click', function() {
+    $('.panel').on('click', function() { 
+        
+        var icon = $(this).attr('data-audio-click');
+        var icon1 = $(this).attr('data-audio');
+        stopAudio();
+        startAudio(icon);
+        
+        
         if (parseInt($(this).css('opacity')) !== 0) {
             var role = $(this).attr('id');
             if (!ismobile) {
@@ -814,8 +834,6 @@ function createListeners() {
                     if ($('.flip').length > 0) {
                         $('.panel').removeClass('hover');
                         $(this).addClass('hover');
-                        var icon = $(this).attr('data-audio');
-                        startAudio(icon);
                     }
                 }
             }
@@ -839,9 +857,12 @@ function createListeners() {
 }
 
 function createAudios() {
-    audios.icon1 = new Sound({src: 'audio/Coverage.wav'});
-    audios.icon2 = new Sound({src: 'audio/Unlimited_Data.wav'});
-    audios.icon3 = new Sound({src: 'audio/Customer_Service.wav'});
+    audios.icon4 = new Sound({src: 'audio/BestCoverage.wav'});
+    audios.icon5 = new Sound({src: 'audio/UnlimitedData.wav'});
+    audios.icon6 = new Sound({src: 'audio/BestService.wav'});
+    audios.icon1 = new Sound({src: 'audio/1.wav'});
+    audios.icon2 = new Sound({src: 'audio/2.wav'});
+    audios.icon3 = new Sound({src: 'audio/3.wav'});
 }
 
 window.onload = function() {
