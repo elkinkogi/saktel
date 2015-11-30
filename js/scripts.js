@@ -643,6 +643,14 @@ function carAnimation() {
 					},700);	
 					console.log("Segui");
 					},1400);
+                
+                setTimeout(function(){
+                    
+                    $('.sprite-animation').show();
+                    $('.why-sassket').show();
+                    
+                },1700);
+                
                 hideRayBest(function() {
                     $('#section-' + lastSection).css('opacity', '1');
                     $('#section-' + lastSection).bind(transition, function() {
@@ -676,7 +684,8 @@ function carAnimation() {
                     });
                 });
             });
-},3000);
+    
+},1500);
 	clearInterval(eks);
 }
 
@@ -769,6 +778,9 @@ function girlAnimation() {
 }
 
 function showSubSection(role) {
+
+    if(role === '1-1') {  $('.sprite-animation').hide();$('.why-sassket').hide(); }
+
     lastSection = role;
     $('#container-menu, #section-2').css('opacity', '0');
     $('#container-menu').bind(transition, function() {
