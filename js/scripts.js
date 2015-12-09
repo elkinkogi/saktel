@@ -92,7 +92,7 @@ Sound.prototype.stop = function() {
     this.audio.pause();
 };
 
-function getRotationDegrees(obj) {
+function getRotationDegrees(obj, callback) {
     var matrix = obj.css("-webkit-transform") ||
             obj.css("-moz-transform") ||
             obj.css("-ms-transform") ||
@@ -105,8 +105,11 @@ function getRotationDegrees(obj) {
         var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
     } else {
         var angle = 0;
+        
     }
-    return (angle < 0) ? angle += 360 : angle;
+    var ang = (angle < 0) ? angle += 360 : angle;
+    console.log(ang);
+        callback(ang);
 }
 
 function transitionEvent() {
@@ -302,9 +305,11 @@ function endGlobalTransition() {
                     $(this).unbind(transition);
                 });
             });
+            
             setTimeout(function() {
                 resetAllAnimations();
-            }, 300);
+            }, 100);
+            
         });
     }, 800);
 }
@@ -711,7 +716,7 @@ function girlAnimation() {
                     $("#section-1-3-text-2-1").show();
                 setTimeout(function(){
                     $("#section-1-3-text-2-2").show();
-                },1600)
+                },1700)
             },3300);
 
             hideRayBest(function() {
@@ -737,8 +742,8 @@ function girlAnimation() {
                                     $("#section-1-3-text-3-1").show();
                                 setTimeout(function(){
                                     $("#section-1-3-text-3-2").show();
-                                },600)
-                            },300);
+                                },1000)
+                            },100);
                             
 
                             $('#text-container').css('opacity', '1');
@@ -775,10 +780,10 @@ function girlAnimation() {
                                             endGlobalTransition();
                                         });
                                     });
-                                }, 100);
+                                }, 700);
                             });
                         });
-                    }, 1500);
+                    }, 2000);
                 });
             });
         });
@@ -822,20 +827,6 @@ function showSubSection(role) {
     });
 }
 
-function startAudio(icon) {
-    
-    if(icon === 'icon4'){
-        setTimeout(function(){
-                console.log(icon);
-                audios[icon].play();
-        },4000);
-        
-    }else{
-        console.log(icon);
-        audios[icon].play();
-    }
-    
-}
 
 function stopAudio() {
     audios["icon1"].stop();
@@ -843,13 +834,30 @@ function stopAudio() {
     audios["icon3"].stop();
 }
 
+
+function startAudio(icon) {
+    stopAudio();
+    if(icon === 'icon4'){
+        setTimeout(function(){
+                console.log(icon);
+                stopAudio();
+                audios[icon].play();
+        },4000);
+        
+    }else{
+        console.log(icon);
+        stopAudio();
+        audios[icon].play();
+    }
+    
+}
+
 function createListeners() {
     window.onorientationchange = updateOrientation;
     $('.panel').on('click', function() { 
         
         var icon = $(this).attr('data-audio-click');
-        var icon1 = $(this).attr('data-audio');
-        stopAudio();
+        
         startAudio(icon);
         
         
@@ -878,23 +886,28 @@ function createListeners() {
     });
 
     $('.panel .back').bind(transition, function() {
+        var self = $(this);
         if ($('.flip').length > 0) {
-            var angle = getRotationDegrees($(this));
-            if (angle === 0) {
-                var icon = $(this).parent().attr('data-audio');
-                startAudio(icon);
-            }
+            getRotationDegrees(self, function(angles){
+                
+                    console.log(angles);
+                    if (angles === 0) {
+                        var icon = self.parent().attr('data-audio');
+                        startAudio(icon);
+                    }
+                
+            });
         }
     });
 }
 
 function createAudios() {
-    audios.icon4 = new Sound({src: 'audio/BestCoverage.wav'});
-    audios.icon5 = new Sound({src: 'audio/UnlimitedData.wav'});
-    audios.icon6 = new Sound({src: 'audio/BestService.wav'});
     audios.icon1 = new Sound({src: 'audio/1.wav'});
     audios.icon2 = new Sound({src: 'audio/2.wav'});
     audios.icon3 = new Sound({src: 'audio/3.wav'});
+    audios.icon4 = new Sound({src: 'audio/BestCoverage.wav'});
+    audios.icon5 = new Sound({src: 'audio/UnlimitedData.wav'});
+    audios.icon6 = new Sound({src: 'audio/BestService.wav'});
 }
 
 window.onload = function() {
