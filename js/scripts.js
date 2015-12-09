@@ -304,9 +304,9 @@ function endGlobalTransition() {
             });
             setTimeout(function() {
                 resetAllAnimations();
-            }, 100);
+            }, 300);
         });
-    }, 500);
+    }, 800);
 }
 
 function resetAllAnimations() {
@@ -650,8 +650,7 @@ function carAnimation() {
                     $('.why-sassket').show();
                     
                 },1700);
-                
-                hideRayBest(function() {
+                    hideRayBest(function() {
                     $('#section-' + lastSection).css('opacity', '1');
                     $('#section-' + lastSection).bind(transition, function() {
                     $(this).unbind(transition);
@@ -685,7 +684,7 @@ function carAnimation() {
                 });
             });
     
-},1500);
+},1000);
 	clearInterval(eks);
 }
 
@@ -695,8 +694,8 @@ function girlAnimation() {
             $("#section-1-3-text-1-1").show();
             setTimeout(function(){
                 $("#section-1-3-text-1-2").show();
-            },1000)
-        },100);
+            },1200)
+        },200);
   
    setTimeout(function(){
         scaleRayBest(function() {
@@ -712,8 +711,8 @@ function girlAnimation() {
                     $("#section-1-3-text-2-1").show();
                 setTimeout(function(){
                     $("#section-1-3-text-2-2").show();
-                },1300)
-            },3000);
+                },1600)
+            },3300);
 
             hideRayBest(function() {
                 $('#section-' + lastSection).css('opacity', '1');
@@ -723,14 +722,24 @@ function girlAnimation() {
                         $('#text-container').css('opacity', '0');
                         $('#text-container').bind(transition, function() {
                             $(this).unbind(transition);
-                            $("#section-1-3-text-2-1").hide();
-                            $("#section-1-3-text-2-2").hide();
                             
+                          
+                                $("#section-1-3-text-2-1").hide();
+                                $("#section-1-3-text-2-2").hide();
+
                             $('#girl-2-img').css({
                                 '-webkit-transform': 'translateX(-90px)',
                                 '-ms-transform': 'translateX(-90px)',
                                 '-moz-transform': 'translateX(-90px)'
                             });
+                            
+                             setTimeout(function(){
+                                    $("#section-1-3-text-3-1").show();
+                                setTimeout(function(){
+                                    $("#section-1-3-text-3-2").show();
+                                },600)
+                            },300);
+                            
 
                             $('#text-container').css('opacity', '1');
                             $('#text-container').bind(transition, function() {
@@ -749,16 +758,16 @@ function girlAnimation() {
                                     $('#text-container').css('opacity', '0');
                                     $('#text-container').bind(transition, function() {
                                         $(this).unbind(transition);
-                                       // $('#section-1-3-text-3-1').hide();
-                                        //$('#section-1-3-text-3-2').hide();
+                                       $('#section-1-3-text-3-1').hide();
+                                        $('#section-1-3-text-3-2').hide();
                                         
                                         
                                         setTimeout(function(){
                                             $('#section-1-3-text-4-1').show();
                                         setTimeout(function(){
                                             $('#section-1-3-text-4-2').show();
-                                        },800)
-                                    },600);
+                                        },1500)
+                                    },0);
 
                                         $('#text-container').css('opacity', '1');
                                         $('#text-container').bind(transition, function() {
@@ -769,12 +778,12 @@ function girlAnimation() {
                                 }, 100);
                             });
                         });
-                    }, 100);
+                    }, 1500);
                 });
             });
         });
     });
-   },2000);
+   },2500);
 }
 
 function showSubSection(role) {
@@ -794,7 +803,7 @@ function showSubSection(role) {
                     $('#section-' + role).css('opacity', '1');
                     $('#section-' + role).bind(transition, function() {
                         $(this).unbind(transition);
-                        $('#' + lastSection).css('opacity', '0');
+                        $('#' + lastSection).css('visibility', 'hidden');
                         switch (role) {
                             case '1-1':
                                 carAnimation();
@@ -814,7 +823,18 @@ function showSubSection(role) {
 }
 
 function startAudio(icon) {
-    audios[icon].play();
+    
+    if(icon === 'icon4'){
+        setTimeout(function(){
+                console.log(icon);
+                audios[icon].play();
+        },4000);
+        
+    }else{
+        console.log(icon);
+        audios[icon].play();
+    }
+    
 }
 
 function stopAudio() {

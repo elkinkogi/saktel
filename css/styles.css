@@ -479,7 +479,7 @@ body{
 
 #section-1-2-text{
     position: relative;
-    top: 50px;
+    top: 53px;
     width: 56.86619718309859%;
     margin: 0 auto;
     height: 60px;
@@ -494,7 +494,7 @@ body{
 }
 
 #section-1-2-text3-1{
-    height: 60%;
+    height: 59%;
     margin: auto;
     display: block;
     width: 93.433098591549296%;
@@ -651,10 +651,10 @@ body{
 }
 
 .section-1-1-text{
-    height: 67px;
+    height: 60px;
     position: absolute;
     width: 100%;
-    bottom: 5px;
+    bottom: 3px;
     text-align: center;
 }
 
@@ -747,9 +747,9 @@ body{
     width: 100%;
     top: 65px;
     line-height: 0;
-    -webkit-transition: 2s linear;
-    -ms-transition: 2s linear;
-    -moz-transition: 2s linear;
+    -webkit-transition: 8s linear;
+    -ms-transition: 8s linear;
+    -moz-transition: 8s linear;
     -webkit-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
