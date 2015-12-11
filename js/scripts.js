@@ -398,6 +398,7 @@ function splarklesAnimation(id, callback) {
                 sparkleVisible(splarkle3, function() {
                     callbackFlip();
                 });
+
             }, 0);
     }
 
@@ -431,6 +432,7 @@ function effectFlip() {
                                 $(this).unbind(transition);
                                 setTimeout(function() {
                                     $('#tap-image-shadow').fadeOut('slow');
+                                    $('.sparkles').css('display','none');
                                 }, 800);
                             });
                         });
@@ -689,7 +691,7 @@ function carAnimation() {
                 });
             });
     
-},1000);
+},2000);
 	clearInterval(eks);
 }
 
@@ -842,7 +844,7 @@ function startAudio(icon) {
                 console.log(icon);
                 stopAudio();
                 audios[icon].play();
-        },4000);
+        },0);
         
     }else{
         console.log(icon);

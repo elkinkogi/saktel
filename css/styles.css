@@ -280,18 +280,22 @@ body{
 }
 
 #icons-container{
-    position: relative;
-    height: auto;
-    overflow: hidden;
-    top: 58px;
+        position: relative;
+    /* height: auto; */
+    /* overflow: hidden; */
+    top: 104px;
+
+        display: flex;
+    justify-content: space-around;
 }
 
 .panel {
-    position: relative;
-    float: left;
-    width: 37.6760563380282%;
+     position: relative;
+    /* float: left; */
+    width: 25%;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     outline: 0;
+    height: 120px;
 }
 
 .panel + .panel{
@@ -312,11 +316,35 @@ body{
     opacity: 0;
 }
 
+.card-copy{
+    position: relative !important;
+}
+
+.card-copy > img:nth-child(1){
+    width: 123px;
+    /* display: block; */
+    position: absolute;
+    top: -165px;
+    left: 29px;
+    z-index: 100;
+         cursor: pointer;
+}
+
+.card-copy > img:nth-child(2){
+    width: 192px;
+    /* display: block; */
+    position: absolute;
+    top: -207px;
+    left: 3px;
+}
+
+
 #icons-container.flip .card{
     -webkit-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
+    height: 100%;
 }
 
 .front{
@@ -334,6 +362,10 @@ body{
     -moz-transform: rotateY(-180deg);  
     transform: rotateY(-180deg);
     position: absolute;
+    width: 150%;
+    top: -40px;
+    left: -38px;
+    cursor: pointer;
 }
 
 .panel.effect .front{
@@ -369,10 +401,11 @@ body{
     right: 0;
     bottom: 0;
     margin: auto;
-    width: 62%;
-    height: 58%;
+    width: 100%;
+    height: 100%;
     border-radius: 5px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 #icon1-sprite, #icon2-sprite, #icon3-sprite{
@@ -457,12 +490,17 @@ body{
 
 #section-1-text{
     position: relative;
-    width: 37.235915492957744%;
+    width: 100%;
     margin: 0 auto;
-    top: 25px;
+    top: 120px;
     z-index: 2;
     opacity: 0;
     line-height: 0;
+    text-align: center;
+}
+
+#section-1-text > img {
+    width: 37%;
 }
 
 #youtube-container{
@@ -747,9 +785,9 @@ body{
     width: 100%;
     top: 65px;
     line-height: 0;
-    -webkit-transition: 8s linear;
-    -ms-transition: 8s linear;
-    -moz-transition: 8s linear;
+    -webkit-transition: 4s cubic-bezier(0.25,0.1,0.25,1);
+    -ms-transition: 4s cubic-bezier(0.25,0.1,0.25,1);
+    -moz-transition: 4s cubic-bezier(0.25,0.1,0.25,1);
     -webkit-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
@@ -812,6 +850,12 @@ body{
     transform: rotate(7deg);
 }
 
+.icons-back{
+
+        top: 138px;
+        position: absolute;
+}
+
 
 
 .sparkles{
@@ -833,15 +877,18 @@ body{
 
 .sparkle1, .sparkle2, .sparkle3{
     position: absolute;
-    top: 0;
-    width: 100%;
+    top: -23px;
+    left: -29px;
+    width: 126%;
+    height: 120%;
+
 }
 
 .sparkle1 img{
-    width: 100%;
-    left: 0px;
-    top: 5px;
-    position: relative;
+        width: 132%;
+    height: 132%;
+    top: -13px;
+    left: -13px;
 }
 
 .sparkle2 img{
@@ -859,11 +906,11 @@ body{
 }
 
 #constumer-service{
-    position: absolute;
-    width: 40%;
-    height: 50%;
-    top: 25%;
-    left: 30%;
+        position: absolute;
+    width: 67%;
+    height: 88%;
+    top: 5%;
+    left: 18%;
 }
 
 #constumer-service > img{
@@ -874,7 +921,7 @@ body{
 #tap-image-shadow{
     position: absolute;
     top: -1px;
-    left: -1px;
+    left: 161px;
     width: 100%;
 }
 
@@ -1294,11 +1341,7 @@ body{
         right: 0;
     }
 
-    .panel{
-        cursor: pointer;
-    }
-
-    .flip .panel:hover .front{
+    .panel:hover .front{
         z-index: 1;
         -webkit-transform: rotateY(180deg);
         -ms-transform: rotateY(180deg);
@@ -1306,7 +1349,7 @@ body{
         transform: rotateY(180deg);
     }
 
-    .flip .panel:hover .back {
+    .panel:hover .back {
         z-index: 2;   
         -webkit-transform: rotateY(0deg);
         -ms-transform: rotateY(0deg);
