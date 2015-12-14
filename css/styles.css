@@ -780,14 +780,22 @@ body{
     display: none;
 }
 
+#block{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    z-index: 800;
+}
+
 #car-blue{
     position: absolute;
     width: 100%;
     top: 65px;
     line-height: 0;
-    -webkit-transition: 4s cubic-bezier(0.25,0.1,0.25,1);
-    -ms-transition: 4s cubic-bezier(0.25,0.1,0.25,1);
-    -moz-transition: 4s cubic-bezier(0.25,0.1,0.25,1);
+    -webkit-transition: 3s cubic-bezier(0.25,0.1,0.25,1);
+    -ms-transition: 3s cubic-bezier(0.25,0.1,0.25,1);
+    -moz-transition: 3s cubic-bezier(0.25,0.1,0.25,1);
     -webkit-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;

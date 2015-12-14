@@ -433,6 +433,7 @@ function effectFlip() {
                                 setTimeout(function() {
                                     $('#tap-image-shadow').fadeOut('slow');
                                     $('.sparkles').css('display','none');
+                                    $('#block').hide();
                                 }, 800);
                             });
                         });
@@ -520,8 +521,7 @@ function startAnimation() {
                                 '-ms-transform': 'translateY(-120px)',
                                 '-moz-transform': 'translateY(-120px)'
                             });
-								
-                                       
+
                                     }, 30);
                                 });
                             });
@@ -633,64 +633,83 @@ function carAnimation() {
                 $("#section-1-1-text2-1").show();
             },600)
         },6000);
-        scaleRayBest(function() {
+
+            scaleRayBest(function() {
             $('#section-' + lastSection).css('opacity', '0');
-            $('#section-' + lastSection).bind(transition, function() {
-            $(this).unbind(transition);
-            $('#car-red-container').hide();
-            $('#car-blue-container').show();
-				$("#bigSignal").fadeOut(0);
-				$("#medianSignal").fadeOut(0);
-				eks = setInterval(function(){
-					$("#medianSignal").fadeIn(0);
-					$("#bigSignal").fadeIn(500);
-					setTimeout(function(){
-						$("#medianSignal").fadeOut(0);
-						$("#bigSignal").fadeOut(0);
-					},700);	
-					console.log("Segui");
-					},1400);
-                
-                setTimeout(function(){
                     
-                    $('.sprite-animation').show();
-                    $('.why-sassket').show();
-                    
-                },1700);
-                    hideRayBest(function() {
-                    $('#section-' + lastSection).css('opacity', '1');
                     $('#section-' + lastSection).bind(transition, function() {
                     $(this).unbind(transition);
-                        
-                        $('#car-blue').css({
-                        '-webkit-transform': 'translateX(70%)',
-                        '-ms-transform': 'translateX(70%)',
-                        '-moz-transform': 'translateX(70%)'
-                    }); 
-                        
-                        /*$('#car-blue-gadget').css({
-                        '-webkit-transform': 'translateX(20%)',
-                        '-ms-transform': 'translateX(20%)',
-                        '-moz-transform': 'translateX(20%)'
-                    });*/
-                        
-                        $('#car-blue').bind(transition, function() {
-                            $('#car-blue').unbind(transition);
-                                endGlobalTransition();
-								
+                    
+                        setTimeout(function(){
+
+                            $('.sprite-animation').show();
+                            $('.why-sassket').show();
+
+                        },1400);
+
+                            hideRayBest(function() {
+                                           
+                            $('#car-red-container').hide();
+                            $('#car-blue-container').show();
+                                
+                            $('#car-blue').hide();
+                                
+                            setTimeout(function(){
+                                $('#car-blue').show(0);
+                                $("#bigSignal").fadeOut(0);
+                                $("#medianSignal").fadeOut(0);
+                                eks = setInterval(function(){
+                                $("#medianSignal").fadeIn(0);
+                                $("#bigSignal").fadeIn(500);
+                                setTimeout(function(){
+                                    $("#medianSignal").fadeOut(0);
+                                    $("#bigSignal").fadeOut(0);
+                                },700); 
+                                console.log("Segui");
+                                },1400);
+                                
+                            },1400)
+                                                       
+                            $('#section-' + lastSection).css('opacity', '1');
+                            $('#section-' + lastSection).bind(transition, function() {
+                           
+                            $(this).unbind(transition);
+                            
+
+                                
+                            $('#car-blue').css({
+                                '-webkit-transform': 'translateX(70%)',
+                                '-ms-transform': 'translateX(70%)',
+                                '-moz-transform': 'translateX(70%)'
+                            }); 
+
+                                /*$('#car-blue-gadget').css({
+                                '-webkit-transform': 'translateX(20%)',
+                                '-ms-transform': 'translateX(20%)',
+                                '-moz-transform': 'translateX(20%)'
+                            });*/
+
+                                $('#car-blue').bind(transition, function() {
+                                    $('#car-blue').unbind(transition);
+                                        endGlobalTransition();
+
+                                    });
+
+                                /*$('#car-blue-gadget').bind(transition, function() {
+                                    $('#car-blue-gadget').unbind(transition);
+                                        endGlobalTransition();
+
+                                    });*/
+
+                                });
+                                
+                
                             });
                         
-                        /*$('#car-blue-gadget').bind(transition, function() {
-                            $('#car-blue-gadget').unbind(transition);
-                                endGlobalTransition();
-								
-                            });*/
                         
-                        });
-                    });
-                });
+                    });                
+            
             });
-    
 },2000);
 	clearInterval(eks);
 }
