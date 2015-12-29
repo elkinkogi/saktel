@@ -105,7 +105,7 @@ function getRotationDegrees(obj, callback) {
         var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
     } else {
         var angle = 0;
-        
+
     }
     var ang = (angle < 0) ? angle += 360 : angle;
     console.log(ang);
@@ -143,7 +143,7 @@ function animationEvent() {
             return animations[t];
         }
     }
-   
+
 }
 
 function updateOrientation() {
@@ -169,11 +169,17 @@ function updateOrientation() {
                 $('#iphone-mockup, #landscape').css('opacity', '1');
                 if ($('#iphone-mockup').is(':visible')) {
                     $('#iphone-mockup').bind(transition, function() {
-                        $(this).unbind(transition);
-                        startAnimation();
+                      var whysasktel = new buzz.sound("./audio/whysasktel.wav");
+                      whysasktel.play();
+                        setTimeout(function(){
+                          $(this).unbind(transition);
+                          startAnimation();
+                        },200)
+
                     });
                 } else {
                     startAnimation();
+
                 }
                 /*var role = '1-2';
                  lastSection = '1-2';
@@ -305,11 +311,11 @@ function endGlobalTransition() {
                     $(this).unbind(transition);
                 });
             });
-            
+
             setTimeout(function() {
                 resetAllAnimations();
             }, 100);
-            
+
         });
     }, 800);
 }
@@ -336,7 +342,7 @@ function resetAllAnimations() {
 
     $('#section-1-2-text3').attr('src', 'images/other-companies2.png');
     $('#section-1-2-text3-1').attr('src', 'images/data-overage-fee.png');
-    
+
     $("#loadingStatus").css({
         'left':'-100%'
     });
@@ -353,7 +359,7 @@ function resetAllAnimations() {
     //$('.section-1-3-text').hide();
     $('#section-1-3-text-1-1').hide();
     $('#section-1-3-text-1-2').hide();
-    
+
     if (enterSection < 3) {
         enterSection++;
     }
@@ -393,7 +399,7 @@ function splarklesAnimation(id, callback) {
     }
 
     if (id === '1-2') {
-       
+
             setTimeout(function() {
                 sparkleVisible(splarkle3, function() {
                     callbackFlip();
@@ -404,7 +410,7 @@ function splarklesAnimation(id, callback) {
 
     if (id === '1-3') {
         sparkleVisible($('.sparkle1'));
-        
+
             setTimeout(function() {
                 sparkleVisible(splarkle2, function() {
                     callbackFlip();
@@ -412,17 +418,20 @@ function splarklesAnimation(id, callback) {
             }, 0);
     }
 }
-
+var flip = new buzz.sound("./audio/plankswoosh.wav");
 function effectFlip() {
     $('#1-1').addClass('effect');
+    flip.play();
     $('#1-1').bind(transition, function() {
         $(this).unbind(transition);
         setTimeout(function() {
             $('#1-2').addClass('effect');
+            flip.play();
             $('#1-2').bind(transition, function() {
                 $(this).unbind(transition);
                 setTimeout(function() {
                     $('#1-3').addClass('effect');
+                    flip.play();
                     $('#1-3').bind(transition, function() {
                         $(this).unbind(transition);
                         splarklesAnimation('1-3', function() {
@@ -456,9 +465,9 @@ function startAnimation() {
             '-ms-transform': 'scale(1)',
             '-moz-transform': 'scale(1)'
         });
-        
+
     setTimeout(function() {
-        
+
         $('#why-sassket img').bind(transition, function() {
             $(this).unbind(transition);
             setTimeout(function() {
@@ -500,9 +509,15 @@ function startAnimation() {
                                 $('#intro img, #container-intro-back, #why-sassket-blue').css('opacity', '0');
                                 $('#intro img').bind(transition, function() {
                                     $(this).unbind(transition);
+                                  setTimeout(function(){
+                                    var sprite = new buzz.sound("./audio/powerbandswoosh.wav");
+                                    sprite.play();
+                                  },300)
 
 									 animateSprite.init(function() {
+
                                             setTimeout(function() {
+
                                                 $('#container-dark-sprites').css('opacity', '1');
                                                 $('#container-dark-sprites').bind(transition, function() {
                                                     $(this).unbind(transition);
@@ -515,7 +530,7 @@ function startAnimation() {
                                             }, 170);
                                         });
                                     setTimeout(function() {
-										
+
 									$('#why-sassket img, #why-sassket-blue img, #container-intro-back, #intro img').css({
                                 '-webkit-transform': 'translateY(-120px)',
                                 '-ms-transform': 'translateY(-120px)',
@@ -547,9 +562,9 @@ function youtubeAnimation() {
                                 clearInterval(coinsTimer1);
                             }
                         }, 400);
-    
-    
-    
+
+
+
         setTimeout(function(){
             $("#section-1-2-text3").show();
             setTimeout(function(){
@@ -565,9 +580,9 @@ function youtubeAnimation() {
             $('#section-' + lastSection).bind(transition, function() {
                 $(this).unbind(transition);
                 $('#loadingStatus').css('left', '-100%');
-                $('#section-1-2-text3').attr('src', 'images/sasktel2.png'); 
+                $('#section-1-2-text3').attr('src', 'images/sasktel2.png');
           $('#section-1-2-text3-1').attr('src', 'images/no-data-overage-fees-copy.png');
-                
+
                 setTimeout(function(){
                     $("#section-1-2-text3").show();
                     setTimeout(function(){
@@ -582,7 +597,7 @@ function youtubeAnimation() {
                         $("#loadingStatus").animate({
                             left: "+=100%"
                         },2500);
-                        
+
                         var coins = [1, 3, 2, 6, 5];
                         var indexCoin = 0;
                         coinsTimer = setInterval(function() {
@@ -595,7 +610,7 @@ function youtubeAnimation() {
                                 }, 650);
                             }
                         }, 400);
-                        
+
                     });
                 });
             });
@@ -604,9 +619,9 @@ function youtubeAnimation() {
 }
 
 function carAnimation() {
-	
+
 	var eks;
-        
+
             /**$("#section-1-1-text1").css({
                 'visibility':'visible'
             },0);
@@ -618,14 +633,14 @@ function carAnimation() {
     setTimeout(function(){
          $("#section-1-1-text1-1").show();
         $('#car-red-container .car-red-gadget').show();
-        	
+
 		setInterval(function(){
 			$('.car-red-gadget').show(300);
 			$('.car-red-gadget').hide(300);
 		},500);
-		
+
         },700);
-    
+
     setTimeout(function(){
         setTimeout(function(){
             $("#section-1-1-text2").show();
@@ -636,10 +651,10 @@ function carAnimation() {
 
             scaleRayBest(function() {
             $('#section-' + lastSection).css('opacity', '0');
-                    
+
                     $('#section-' + lastSection).bind(transition, function() {
                     $(this).unbind(transition);
-                    
+
                         setTimeout(function(){
 
                             $('.sprite-animation').show();
@@ -648,12 +663,12 @@ function carAnimation() {
                         },1400);
 
                             hideRayBest(function() {
-                                           
+
                             $('#car-red-container').hide();
                             $('#car-blue-container').show();
-                                
+
                             $('#car-blue').hide();
-                                
+
                             setTimeout(function(){
                                 $('#car-blue').show(0);
                                 $("#bigSignal").fadeOut(0);
@@ -664,24 +679,24 @@ function carAnimation() {
                                 setTimeout(function(){
                                     $("#medianSignal").fadeOut(0);
                                     $("#bigSignal").fadeOut(0);
-                                },700); 
+                                },700);
                                 console.log("Segui");
                                 },1400);
-                                
+
                             },1400)
-                                                       
+
                             $('#section-' + lastSection).css('opacity', '1');
                             $('#section-' + lastSection).bind(transition, function() {
-                           
-                            $(this).unbind(transition);
-                            
 
-                                
+                            $(this).unbind(transition);
+
+
+
                             $('#car-blue').css({
                                 '-webkit-transform': 'translateX(70%)',
                                 '-ms-transform': 'translateX(70%)',
                                 '-moz-transform': 'translateX(70%)'
-                            }); 
+                            });
 
                                 /*$('#car-blue-gadget').css({
                                 '-webkit-transform': 'translateX(20%)',
@@ -702,27 +717,27 @@ function carAnimation() {
                                     });*/
 
                                 });
-                                
-                
+
+
                             });
-                        
-                        
-                    });                
-            
+
+
+                    });
+
             });
 },2000);
 	clearInterval(eks);
 }
 
 function girlAnimation() {
-    
+
     setTimeout(function(){
             $("#section-1-3-text-1-1").show();
             setTimeout(function(){
                 $("#section-1-3-text-1-2").show();
             },1200)
         },200);
-  
+
    setTimeout(function(){
         scaleRayBest(function() {
         $('#section-' + lastSection).css('opacity', '0');
@@ -732,7 +747,7 @@ function girlAnimation() {
             $('#girl-2').show();
             $("#section-1-3-text-1-1").hide();
             $("#section-1-3-text-1-2").hide();
-            
+
             setTimeout(function(){
                     $("#section-1-3-text-2-1").show();
                 setTimeout(function(){
@@ -748,8 +763,8 @@ function girlAnimation() {
                         $('#text-container').css('opacity', '0');
                         $('#text-container').bind(transition, function() {
                             $(this).unbind(transition);
-                            
-                          
+
+
                                 $("#section-1-3-text-2-1").hide();
                                 $("#section-1-3-text-2-2").hide();
 
@@ -758,20 +773,20 @@ function girlAnimation() {
                                 '-ms-transform': 'translateX(-90px)',
                                 '-moz-transform': 'translateX(-90px)'
                             });
-                            
+
                              setTimeout(function(){
                                     $("#section-1-3-text-3-1").show();
                                 setTimeout(function(){
                                     $("#section-1-3-text-3-2").show();
                                 },1000)
                             },100);
-                            
+
 
                             $('#text-container').css('opacity', '1');
                             $('#text-container').bind(transition, function() {
                                 $(this).unbind(transition);
                                 setTimeout(function() {
-   
+
                                     $('#gadget-1').css('opacity', '0');
                                     $('#gadget-1').bind(transition, function() {
                                         $(this).unbind(transition);
@@ -780,14 +795,14 @@ function girlAnimation() {
                                             $(this).unbind(transition);
                                         });
                                     });
-                                    
+
                                     $('#text-container').css('opacity', '0');
                                     $('#text-container').bind(transition, function() {
                                         $(this).unbind(transition);
                                        $('#section-1-3-text-3-1').hide();
                                         $('#section-1-3-text-3-2').hide();
-                                        
-                                        
+
+
                                         setTimeout(function(){
                                             $('#section-1-3-text-4-1').show();
                                         setTimeout(function(){
@@ -864,24 +879,24 @@ function startAudio(icon) {
                 stopAudio();
                 audios[icon].play();
         },0);
-        
+
     }else{
         console.log(icon);
         stopAudio();
         audios[icon].play();
     }
-    
+
 }
 
 function createListeners() {
     window.onorientationchange = updateOrientation;
-    $('.panel').on('click', function() { 
-        
+    $('.panel').on('click', function() {
+
         var icon = $(this).attr('data-audio-click');
-        
+
         startAudio(icon);
-        
-        
+
+
         if (parseInt($(this).css('opacity')) !== 0) {
             var role = $(this).attr('id');
             if (!ismobile) {
@@ -902,7 +917,12 @@ function createListeners() {
     });
     $('.icons').on('click', function() {
         var id = $(this).attr('id').split('_')[1];
+        var icon = $(this).attr('data-audio-click');
+
+        startAudio(icon);
         console.log(id);
+        console.log(icon);
+
         showSubSection(id);
     });
 
@@ -910,25 +930,28 @@ function createListeners() {
         var self = $(this);
         if ($('.flip').length > 0) {
             getRotationDegrees(self, function(angles){
-                
+
                     console.log(angles);
                     if (angles === 0) {
                         var icon = self.parent().attr('data-audio');
                         startAudio(icon);
+                    }else{
+                        stopAudio();
                     }
-                
+
             });
         }
     });
 }
 
 function createAudios() {
-    audios.icon1 = new Sound({src: 'audio/1.wav'});
-    audios.icon2 = new Sound({src: 'audio/2.wav'});
-    audios.icon3 = new Sound({src: 'audio/3.wav'});
-    audios.icon4 = new Sound({src: 'audio/BestCoverage.wav'});
-    audios.icon5 = new Sound({src: 'audio/UnlimitedData.wav'});
-    audios.icon6 = new Sound({src: 'audio/BestService.wav'});
+
+    audios.icon1 = new buzz.sound("./audio/1.wav");
+    audios.icon2 = new buzz.sound("./audio/2.wav");
+    audios.icon3 = new buzz.sound("./audio/3.wav");
+    audios.icon4 = new buzz.sound("./audio/BestCoverage.wav");
+    audios.icon5 = new buzz.sound("./audio/UnlimitedData.wav");
+    audios.icon6 = new buzz.sound("./audio/BestService.wav");
 }
 
 window.onload = function() {

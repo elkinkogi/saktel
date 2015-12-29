@@ -85,7 +85,7 @@ body{
 }
 
 #why-sassket img{
-    
+
     -webkit-transition: transform 1s cubic-bezier(.33,2.1,.47,.49);
     -ms-transition: transform 1s cubic-bezier(.33,2.1,.47,.49);
     -moz-transition: transform 1s cubic-bezier(.33,2.1,.47,.49);
@@ -351,7 +351,7 @@ body{
     z-index: 1;
     -webkit-transform: rotateY(-360deg);
     -ms-transform: rotateY(-360deg);
-    -moz-transform: rotateY(-360deg);  
+    -moz-transform: rotateY(-360deg);
     transform: rotateY(-360deg);
 }
 
@@ -359,7 +359,7 @@ body{
     z-index: 1;
     -webkit-transform: rotateY(-180deg);
     -ms-transform: rotateY(-180deg);
-    -moz-transform: rotateY(-180deg);  
+    -moz-transform: rotateY(-180deg);
     transform: rotateY(-180deg);
     position: absolute;
     width: 150%;
@@ -386,7 +386,7 @@ body{
 }
 
 .panel.hover .back {
-    z-index: 2;   
+    z-index: 2;
     -webkit-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     -moz-transform: rotateY(0deg);
@@ -628,13 +628,13 @@ body{
 
 
 .flag-canadian {
-    
+
     width: 68% !important;
     margin: auto;
     display: block;
     top: -43px;
     height: 190px;
-    
+
 }
 
 
@@ -940,43 +940,43 @@ body{
 
 @-webkit-keyframes spaceboots {
     0% {
-        -webkit-transform: rotate(0deg); 
+        -webkit-transform: rotate(0deg);
     }
 
     50% {
-        -webkit-transform: rotate(-1deg); 
+        -webkit-transform: rotate(-1deg);
     }
 
     100% {
-        -webkit-transform: rotate(1deg); 
+        -webkit-transform: rotate(1deg);
     }
 }
 
 @-ms-keyframes spaceboots {
     0% {
-        -ms-transform: rotate(0deg); 
+        -ms-transform: rotate(0deg);
     }
 
     50% {
-        -ms-transform: rotate(-1deg); 
+        -ms-transform: rotate(-1deg);
     }
 
     100% {
-        -ms-transform: rotate(1deg); 
+        -ms-transform: rotate(1deg);
     }
 }
 
 @-moz-keyframes spaceboots {
     0% {
-        -moz-transform: rotate(0deg); 
+        -moz-transform: rotate(0deg);
     }
 
     50% {
-        -moz-transform: rotate(-1deg); 
+        -moz-transform: rotate(-1deg);
     }
 
     100% {
-        -moz-transform: rotate(1deg); 
+        -moz-transform: rotate(1deg);
     }
 }
 
@@ -1122,6 +1122,13 @@ body{
 #section-2-icon{
     position: relative;
     top: 151px;
+}
+
+#thumb_text{
+  position: absolute;
+  top: 25%;
+  width: 58%;
+  left: 21%;
 }
 
 .icons{
@@ -1358,7 +1365,7 @@ body{
     }
 
     .panel:hover .back {
-        z-index: 2;   
+        z-index: 2;
         -webkit-transform: rotateY(0deg);
         -ms-transform: rotateY(0deg);
         -moz-transform: rotateY(0deg);
