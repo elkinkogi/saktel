@@ -289,6 +289,22 @@ body{
     justify-content: space-around;
 }
 
+.icons-trans{
+    width: 311px;
+    height: 84px;
+    position: relative;
+    top: -121px;
+    left: 106px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+}
+
+.icons-trans > div{
+    width: 30%;
+    height: 100%;
+}
+
 .panel {
      position: relative;
     /* float: left; */
@@ -804,12 +820,13 @@ body{
     -ms-transform: translateX(0%);
     -moz-transform: translateX(0%);
     transform: translateX(0%);
+    left: -20%;
 }
 
 #car-blue img{
     width: 49.20774647887324%;
     position: relative;
-    left: 10%;
+    left: -20%;
     margin-left: -24.60387323943662%;
 }
 
@@ -821,7 +838,7 @@ body{
     height: 90px;
 	z-index: 20;
     top: 15px;
-    left: 0px;
+    left: -30%;
 }
 
 #car-blue-gadget > img:nth-child(1){
@@ -1124,9 +1141,16 @@ body{
     top: 151px;
 }
 
+#section-2-text{
+        width: 200px;
+    margin: auto;
+    bottom: -36px;
+    position: relative;
+}
+
 #thumb_text{
   position: absolute;
-  top: 25%;
+  top: 16%;
   width: 58%;
   left: 21%;
 }
@@ -1325,6 +1349,14 @@ body{
 	top: 161px;
   	position: absolute;
   	width: 16.792254%;
+}
+
+.close{
+        position: absolute;
+    right: 10px;
+    top: 10px;
+    /* border: 1px solid red; */
+    width: 33px;
 }
 
 @media screen and (max-width: 480px) {

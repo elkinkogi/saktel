@@ -683,7 +683,7 @@ function carAnimation() {
                                 console.log("Segui");
                                 },1400);
 
-                            },1400)
+                            },100)
 
                             $('#section-' + lastSection).css('opacity', '1');
                             $('#section-' + lastSection).bind(transition, function() {
@@ -693,9 +693,9 @@ function carAnimation() {
 
 
                             $('#car-blue').css({
-                                '-webkit-transform': 'translateX(70%)',
-                                '-ms-transform': 'translateX(70%)',
-                                '-moz-transform': 'translateX(70%)'
+                                '-webkit-transform': 'translateX(120%)',
+                                '-ms-transform': 'translateX(120%)',
+                                '-moz-transform': 'translateX(120%)'
                             });
 
                                 /*$('#car-blue-gadget').css({
@@ -725,7 +725,7 @@ function carAnimation() {
                     });
 
             });
-},2000);
+},0);
 	clearInterval(eks);
 }
 
@@ -752,7 +752,7 @@ function girlAnimation() {
                     $("#section-1-3-text-2-1").show();
                 setTimeout(function(){
                     $("#section-1-3-text-2-2").show();
-                },1700)
+                },900)
             },3300);
 
             hideRayBest(function() {
@@ -778,53 +778,42 @@ function girlAnimation() {
                                     $("#section-1-3-text-3-1").show();
                                 setTimeout(function(){
                                     $("#section-1-3-text-3-2").show();
-                                },1000)
-                            },100);
-
+                                },1500)
+                            },0);
 
                             $('#text-container').css('opacity', '1');
-                            $('#text-container').bind(transition, function() {
+
+                            $('#gadget-1').css('opacity', '0');
+                            $('#gadget-1').bind(transition, function() {
                                 $(this).unbind(transition);
-                                setTimeout(function() {
-
-                                    $('#gadget-1').css('opacity', '0');
-                                    $('#gadget-1').bind(transition, function() {
-                                        $(this).unbind(transition);
-                                        $('#gadget-2').css('opacity', '1');
-                                        $('#gadget-2').bind(transition, function() {
-                                            $(this).unbind(transition);
-                                        });
-                                    });
-
-                                    $('#text-container').css('opacity', '0');
-                                    $('#text-container').bind(transition, function() {
-                                        $(this).unbind(transition);
-                                       $('#section-1-3-text-3-1').hide();
-                                        $('#section-1-3-text-3-2').hide();
-
-
-                                        setTimeout(function(){
-                                            $('#section-1-3-text-4-1').show();
-                                        setTimeout(function(){
-                                            $('#section-1-3-text-4-2').show();
-                                        },1500)
-                                    },0);
-
-                                        $('#text-container').css('opacity', '1');
-                                        $('#text-container').bind(transition, function() {
-                                            $(this).unbind(transition);
-                                            endGlobalTransition();
-                                        });
-                                    });
-                                }, 700);
+                                $('#gadget-2').css('opacity', '1');
+                                $('#gadget-2').bind(transition, function() {
+                                    $(this).unbind(transition);
+                                });
                             });
+
+
+
+
+
+                                      $('#text-container').bind(transition, function() {
+                                          $(this).unbind(transition);
+                                            setTimeout(function(){
+                                              endGlobalTransition();
+                                              },2000)
+                                      });
+
+
+
+
+
                         });
-                    }, 2000);
+                    }, 1000);
                 });
             });
         });
     });
-   },2500);
+   },3500);
 }
 
 function showSubSection(role) {
@@ -926,6 +915,17 @@ function createListeners() {
         showSubSection(id);
     });
 
+    $('.shadowicons').on('click', function() {
+        var id = $(this).attr('id').split('_')[1];
+        var icon = $(this).attr('data-audio-click');
+
+        startAudio(icon);
+        console.log(id);
+        console.log(icon);
+
+        showSubSection(id);
+    });
+
     $('.panel .back').bind(transition, function() {
         var self = $(this);
         if ($('.flip').length > 0) {
@@ -951,7 +951,7 @@ function createAudios() {
     audios.icon3 = new buzz.sound("./audio/3.wav");
     audios.icon4 = new buzz.sound("./audio/BestCoverage.wav");
     audios.icon5 = new buzz.sound("./audio/UnlimitedData.wav");
-    audios.icon6 = new buzz.sound("./audio/BestService.wav");
+    audios.icon6 = new buzz.sound("./audio/BestServiceDec28.wav");
 }
 
 window.onload = function() {
